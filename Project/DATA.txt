@@ -1,0 +1,13 @@
++91 9895 66 00 33
+Kannadichola, Vythiri
+Wayanad District
+Pincode - 673576
+Kerala State, India
+info@vythiridewvista.comEmail : 
+
+
+.DNA-section[data-id=hero] .DNA-section__slogan.JS-hide {
+    display: none;
+}
+
+

@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: 200vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font: #867a6f;
+  }
+
+  .menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #867A6F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #42454A;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease; /* Add transition for smooth rotation */
+  }
+
+
+
+  .circular-menu-icon i {
+    font-size: 2.5em;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(100deg);
+    transition: transform 0.5s ease; /* Add transition for smooth rotation */
+  }
+
+  .circular-text {
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  top: 50%;
+  transform: translateY(-50%) rotate(270deg);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  line-height: 150px;
+}
+
+.bottom-text {
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  top: 50%;
+  transform: translateY(50%) rotate(120deg);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  line-height: 150px;
+}
+
+.center-lines {
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-lines::before,
+.center-lines::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 40px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
