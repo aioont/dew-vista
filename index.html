@@ -19,61 +19,68 @@
             height: 100%;
             margin: 0;
             font-family: 'Lexend', sans-serif;
+            position: relative;
         }
 
         header {
-            background-color: #333;
+            background: none; /* Remove background */
             color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: space-around;
+            padding: 5px;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-        }
-
-        p {
-            font-size: 11px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 2; /* Ensure header is above video */
         }
 
         #contact-info {
             display: flex;
             align-items: center;
+            margin-right: auto; /* Push to the left */
         }
 
         #contact-info p {
             margin: 0;
+            font-size: 12px;
+            margin-right: 20px; /* Adjust spacing */
+            padding: 20px;
         }
 
         #logo-resort {
             text-align: center;
-            margin: 0% 30% 0% 0%;
         }
+        
+        #logo-resort h1 {
+            margin-top: -10px;
+        }
+
 
         .menu-icon {
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background-color: #867A6F;
+            background-color: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #42454A;
-            transform: rotate(0deg);
-            transition: transform 0.5s ease; /* Add transition for smooth rotation */
-            z-index: 1000;
+            color: #ffffff;
+            transform: rotate(12deg);
+            transition: transform;
+            z-index: 3; /* Ensure menu icon is above video */
         }
 
         .circular-menu-icon i {
-            font-size: 2.5em;
+            font-size: 1.5em;
             display: block;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(100deg);
-            transition: transform 0.5s ease; /* Add transition for smooth rotation */
+            transform: translate(-50%, -50%) rotate(168deg);
+            transition: transform;
         }
 
         .circular-text {
@@ -88,6 +95,7 @@
             text-transform: uppercase;
             letter-spacing: 10px;
             line-height: 150px;
+            fill: #fff;
         }
 
         .bottom-text {
@@ -392,8 +400,8 @@
                </text>
                <!-- Define paths in a single <defs> element -->
                <defs>
-                  <path id="circle-text-path1" d="M75,10 a65,65 0 1,1 0,130" />
-                  <path id="circle-text-path2" d="M25,10 a65,65 0 1,0 180,130" />
+                  <path id="circle-text-path1" d="M80,10 a75,65 0 1,1 0,130" />
+                  <path id="circle-text-path2" d="M5,55 a70,65 0 1,0 180,50" />
                </defs>
             </svg>
             <div class="circular-menu-icon" id="menu-icon">

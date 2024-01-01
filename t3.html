@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,56 +12,78 @@
             height: 100%;
             margin: 0;
             font-family: 'Lexend', sans-serif;
-            position: relative; /* Set the position to relative for absolute positioning within */
+            position: relative;
         }
 
         header {
-            background-color: #333;
+            background: none; /* Remove background */
             color: #fff;
-            padding: 10px;
-            display: flex;
+            padding: 5px;
             justify-content: space-between;
             align-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 2; /* Ensure header is above video */
         }
-
+        
         #contact-info {
             display: flex;
             align-items: center;
+            margin-right: auto; /* Push to the left */
         }
 
         #contact-info p {
             margin: 0;
             font-size: 12px;
+            margin-right: 20px; /* Adjust spacing */
+            padding: 10px;
         }
 
+      
         #logo-resort {
             text-align: center;
+            margin-top: -50px !important;
         }
 
+        #log-resort h1 {
+            margin: 0 auto;
+        }
+        
+      
         .menu-icon {
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background-color: #867A6F;
+            background-color: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #42454A;
-            transform: rotate(0deg);
-            transition: transform 0.5s ease;
+            color: #ffffff;
+            transform: rotate(12deg);
+            transition: transform, background-color 0.5s ease;
+            z-index: 3; /* Ensure menu icon is above video */
+        }
+
+        .menu-icon.scrolled {
+            background-color: #d26c6c; /* Set the background color when scrolled */
+        }
+
+        .menu-icon i {
+            font-size: 1.5em;
         }
 
         .circular-menu-icon i {
-            font-size: 2.5em;
+            font-size: 1.5em;
             display: block;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(100deg);
-            transition: transform 0.5s ease;
+            transform: translate(-50%, -50%) rotate(168deg);
+            transition: transform;
         }
 
         .circular-text {
@@ -78,6 +98,7 @@
             text-transform: uppercase;
             letter-spacing: 10px;
             line-height: 150px;
+            fill: #fff;
         }
 
         .bottom-text {
@@ -88,12 +109,22 @@
             left: 20px;
         }
 
-        .bubble {
-            background-color: #4285F4;
-            color: #fff;
-            padding: 10px;
-            border-radius: 20px;
+        .bottom-bubble-text {
+            position: absolute;
             text-align: center;
+            width: auto; 
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .bubble {
+            background-color: rgba(255,255,255,.2);
+            color: #fff;
+            padding: 5%;
+            border-radius: 50%;
+            text-align: center;
+            width: 40px; 
+
         }
 
         .bubble a {
@@ -107,13 +138,12 @@
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
+            overflow: hidden; /* Ensure video doesn't overflow */
         }
 
         #video-container {
-            max-width: 800px;
-            max-height: 600px;
             width: 100%;
-            height: 100%;
+            object-fit: cover; /* Maintain video aspect ratio */
         }
 
         .content-section {
@@ -121,6 +151,8 @@
             padding: 20px;
             border: 1px solid #ccc;
             margin: 10px;
+            position: relative;
+            z-index: 1; /* Ensure content sections are below video */
         }
 
         @media (max-width: 768px) {
@@ -133,6 +165,10 @@
                 order: 1;
                 align-self: flex-start;
             }
+            #contact-info p {
+               padding: 5px;
+               font-size: small;
+            }
 
             #menu-icon {
                 order: 2;
@@ -141,97 +177,201 @@
 
             #logo-resort {
                 order: 3;
-                margin: 20px 0;
+                margin-top: 0px !important;
+            }
+            #logo-resort h1 {
+                margin: 0;
+                padding: 0;
+                font-size: medium;
             }
         }
+
+
+        #menu-options {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 4;
+        }
+
+        #menu-options ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        #menu-options li {
+            padding: 10px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        #menu-options .sub-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: transparent;
+            border-radius: 10px;
+        }
+
+        #menu-options li:hover .sub-menu {
+            display: block;
+        }
+
+        #menu-options .sub-menu li {
+            font-size: 12px;
+            padding: 10px;
+            width: 150px;
+        }
+
+
+        
     </style>
 </head>
 <body>
 
-    <header>
-        <div id="contact-info">
-            <div>
-                <p style="font-size: 10px;">+123 456 7890 | info@example.com</p>
-            </div>
-        </div>
-        <div id="logo-resort">
-            <img src="your_logo_image_path" alt="Logo" width="100" height="100">
-            <h1>Your Resort Name</h1>
-        </div>
-        <div class="menu-icon" id="menu-icon">
-            <svg class="circular-text" width="80" height="80" viewBox="0 0 170 150">
-               <!-- Group text elements within a single <text> element -->
-               <text>
-                  <textPath id="textPath1" xlink:href="#circle-text-path1">Dew Vista</textPath>
-                  <textPath id="textPath2" xlink:href="#circle-text-path2">Menu</textPath>
-               </text>
-               <!-- Define paths in a single <defs> element -->
-               <defs>
-                  <path id="circle-text-path1" d="M75,10 a65,65 0 1,1 0,130" />
-                  <path id="circle-text-path2" d="M25,10 a65,65 0 1,0 180,130" />
-               </defs>
-            </svg>
-            <div class="circular-menu-icon" id="menu-icon">
-               <i class="fas fa-bars"></i>
-            </div>
-         </div>
-    </header>
-
-    <div id="video-section">
-        <div id="video-container">
-            <!-- Add your video embed code or source here -->
-            <!-- Example: <iframe width="100%" height="100%" src="your_video_source" frameborder="0" allowfullscreen></iframe> -->
+<header>
+    <div id="contact-info">
+        <div>
+            <p style="text-align: right;">LANGUAGES</p>
+            <p style="font-size: 10px;">+123 456 7890 | info@example.com | hi | en </p>
+            <!-- Use google translator API-->
         </div>
     </div>
-
-    <!-- Twelve additional content sections -->
-    <div class="content-section">Section 1</div>
-    <div class="content-section">Section 2</div>
-    <div class="content-section">Section 3</div>
-    <div class="content-section">Section 4</div>
-    <div class="content-section">Section 5</div>
-    <div class="content-section">Section 6</div>
-    <div class="content-section">Section 7</div>
-    <div class="content-section">Section 8</div>
-    <div class="content-section">Section 9</div>
-    <div class="content-section">Section 10</div>
-    <div class="content-section">Section 11</div>
-    <div class="content-section">Section 12</div>
-
-    <!-- Bubble with "Book Now" link -->
-    <div class="bottom-text">
-        <div class="bubble">
-            <a href="#book-now">Book Now</a>
-        </div>
+    <div id="logo-resort">
+        <img src="./img/logo.1-1536x864_32x32.png" alt="Logo" width="100" height="100">
+        <h1>Resort Name</h1>
     </div>
+    <div class="menu-icon" id="menu-icon">
+        <svg class="circular-text" width="80" height="80" viewBox="0 0 170 150">
+           <!-- Group text elements within a single <text> element -->
+           <text>
+              <textPath id="textPath1" xlink:href="#circle-text-path1">Dew Vista</textPath>
+              <textPath id="textPath2" xlink:href="#circle-text-path2">Menu</textPath>
+           </text>
+           <!-- Define paths in a single <defs> element -->
+           <defs>
+              <path id="circle-text-path1" d="M80,10 a75,65 0 1,1 0,130" />
+              <path id="circle-text-path2" d="M5,55 a70,65 0 1,0 180,50" />
+           </defs>
+        </svg>
+        <div class="circular-menu-icon" id="menu-icon">
+           <i class="fas fa-bars"></i>
+        </div>
+     </div>
+     <div id="menu-options">
+        <ul>
+            <li>DISCOVER
+                <ul class="sub-menu">
+                    <li>Sub Option 1.1</li>
+                    <li>Sub Option 1.2</li>
+                    <li>Sub Option 1.3</li>
+                </ul>
+            </li>
+            <li>EXPERIENCE
+                <ul class="sub-menu">
+                    <li>Sub Option 2.1</li>
+                    <li>Sub Option 2.2</li>
+                </ul>
+            </li>
+            <li>RELAX
+                <ul class="sub-menu">
+                    <li>Sub Option 2.1</li>
+                </ul>
+            </li>
+            <li>ENJOY
+                <ul class="sub-menu">
+                    <li>Sub Option 2.1</li>
+                </ul>
+            </li>
+            <li>LIVING
+                <ul class="sub-menu">
+                    <li>Sub Option 2.1</li>
+                </ul>
+            </li>
+            
+        </ul>
+    </div>
+</header>
 
-    <script>
-        // JavaScript to toggle the active class on the menu icon and add class on scroll
-        document.getElementById('menu-icon').addEventListener('click', function () {
-            this.classList.toggle('active');
-        });
+<div id="video-section">
+    <video id="video-container" autoplay loop muted playsinline>
+        <source src="./videoplayback.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
-        window.addEventListener('scroll', function () {
-            var header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 0);
-        });
-    </script>
-    <script>
-        const menuIcon = document.getElementById('menu-icon');
-        const circularMenuIcon = document.querySelector('.circular-menu-icon i');
+<!-- Twelve additional content sections -->
+<div class="content-section">Section 1</div>
+<div class="content-section">Section 2</div>
+<div class="content-section">Section 3</div>
+<div class="content-section">Section 4</div>
+<div class="content-section">Section 5</div>
+<div class="content-section">Section 6</div>
+<div class="content-section">Section 7</div>
+<div class="content-section">Section 8</div>
+<div class="content-section">Section 9</div>
+<div class="content-section">Section 10</div>
+<div class="content-section">Section 11</div>
+<div class="content-section">Section 12</div>
 
-        // Function to rotate the entire circular icon
+<!-- Bubble with "Book Now" link -->
+<div class="bottom-text">
+    <div class="bubble">
+        <a href="#book-now">Book Now</a>
+    </div>
+</div>
+
+<script>
+     const menuIcon1 = document.getElementById('menu-icon');
+        const circularMenuIcon1 = document.querySelector('.circular-menu-icon i');
+
         const rotateEntireIcon = () => {
         const scrollY = window.scrollY || window.pageYOffset;
-        const rotationAngle = scrollY / 5; // You can adjust the rotation speed here
+        const rotationAngle = scrollY / 7; // You can adjust the rotation speed here
 
-        menuIcon.style.transform = `rotate(${rotationAngle}deg)`;
-        circularMenuIcon.style.transform = `translate(-50%, -50%) rotate(${140 + rotationAngle}deg)`;
+        menuIcon1.style.transform = `rotate(${rotationAngle}deg)`;
+        circularMenuIcon1.style.transform = `translate(-50%, -50%) rotate(${140 + rotationAngle}deg)`;
         };
 
-        // Add scroll event listener to rotate the entire circular icon
         window.addEventListener('scroll', rotateEntireIcon);
-    </script>
+</script>
+
+<script>
+    const menuIcon = document.getElementById('menu-icon');
+    const circularMenuIcon = document.querySelector('.circular-menu-icon i');
+    const videoContainer = document.getElementById('video-container');
+    const menuOptions = document.getElementById('menu-options');
+
+    menuIcon.addEventListener('click', function () {
+        this.classList.toggle('active');
+        menuOptions.style.display = menuOptions.style.display === 'none' ? 'block' : 'none';
+
+        const icon = circularMenuIcon.classList.contains('fa-bars') ? 'fa-times' : 'fa-bars';
+    circularMenuIcon.classList.remove('fa-bars', 'fa-times');
+    circularMenuIcon.classList.add(icon);
+    });
+
+    window.addEventListener('scroll', function () {
+        menuIcon.classList.toggle('scrolled', window.scrollY > 600);
+    });
+
+    function setVideoHeight() {
+        const windowHeight = window.innerHeight;
+        videoContainer.style.height = `${windowHeight}px`;
+    }
+
+    window.addEventListener('resize', setVideoHeight);
+    setVideoHeight();
+
+</script>
 
 </body>
 </html>
