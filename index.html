@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@700&family=Orbitron&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    
+    <title>Your Web Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+
+        p {
+            font-size: 11px;
+        }
+
+        #contact-info {
+            display: flex;
+            align-items: center;
+        }
+
+        #contact-info p {
+            margin: 0;
+        }
+
+        #logo-resort {
+            text-align: center;
+            margin: 0% 30% 0% 0%;
+        }
+
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #867A6F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #42454A;
+            transform: rotate(0deg);
+            transition: transform 0.5s ease; /* Add transition for smooth rotation */
+            z-index: 1000;
+        }
+
+        .circular-menu-icon i {
+            font-size: 2.5em;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(100deg);
+            transition: transform 0.5s ease; /* Add transition for smooth rotation */
+        }
+
+        .circular-text {
+            position: absolute;
+            text-align: center;
+            width: 90%;
+            top: 50%;
+            transform: translateY(-50%) rotate(270deg);
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            line-height: 150px;
+        }
+
+        .bottom-text {
+            position: absolute;
+            text-align: center;
+            width: 90%;
+            top: 50%;
+            transform: translateY(50%) rotate(120deg);
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            line-height: 150px;
+        }
+
+
+        .bottom-bubble-text {
+            position: absolute;
+            text-align: center;
+            width: auto; 
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .bubble {
+            background-color: rgba(255,255,255,.2);
+            color: #fff;
+            padding: 50%;
+            border-radius: 50%;
+            text-align: center;
+            width: 50px; 
+
+        }
+
+        .bubble a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .center-lines {
+            position: absolute;
+            width: 2px;
+            height: 40px;
+            background-color: #ffffff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .center-lines::before,
+        .center-lines::after {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 40px;
+            background-color: #ffffff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        #menu-icon.active:before {
+            content: '\2716'; /* Unicode character for cross mark */
+            transform: rotate(0deg);
+        }
+
+        #video-section {
+            position: relative;
+            height: 85%; /* 100% of the viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #video-container video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .content-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .content-section h2 {
+            color: #333; /* Heading color */
+        }
+
+        .content-section p {
+            color: #666; /* Description text color */
+            line-height: 1.5; /* Adjust line height for better readability */
+        }
+
+        /* Section 2 */
+
+        .section-heading {
+            text-align: left;
+        }
+
+        .row-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .image-column {
+            order: 1;
+        }
+
+        .text-column {
+            order: 2;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .carousel-icon-container {
+            display: flex;
+            align-items: center; 
+            justify-content: center;             
+        }
+        .carousel-text {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: -3px;
+            font-family: 'Exo', sans-serif;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        .column-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-column-up {
+            order: 3;
+            margin-top: -40px;
+        }
+
+        .same-line {
+            display: flex;
+        }
+
+        /*Section 3*/
+
+        .image-carousel {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .floating-button {
+            position: absolute;
+            top: 75%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .floating-button1 {
+            left: 30%;
+        }
+
+        .floating-button2 {
+            right: 30%;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 20px;
+        }
+
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; 
+                text-align: center; 
+            }
+
+            .content-section {
+                padding: 10px;
+                margin: 5px;
+            }
+
+            #contact-info {
+                order: 1; 
+                align-self: flex-start; 
+            }
+
+            #menu-icon {
+                order: 2; 
+                align-self: flex-end; 
+                top: 5px;
+                right: 5px;
+            }
+
+            #logo-resort {
+                order: 3; 
+                margin: 30px 0; 
+                margin-bottom: 0px !important;
+            }
+            #video-section {
+                max-height: 75%;
+            }
+
+            .bottom-bubble-text {
+                width: 90%; 
+                left: 5%; 
+                bottom: 5%; 
+            }
+
+            .bubble {
+                padding: 8%; 
+                width: 40px; 
+            }
+
+            .image-column {
+                min-width: 90%;
+            }
+
+            .text-column {
+                order: 3;
+            }
+
+            .image-column-up {
+                order: 2;
+                min-height: 100%;
+                margin-left: 10px;
+            }
+
+            .image-column-up img {
+                min-height: 50%;
+                clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);
+            }
+
+            .carousel-icon-container i {
+                margin: 0 5px;
+            }
+
+            .floating-button {
+                font-size: 14px;
+            }
+
+          
+                
+            
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="contact-info">
+            <div>
+                <p style="font-size: 10px;">+123 456 7890 | info@example.com</p>
+            </div>
+        </div>
+        <div id="logo-resort">
+            <img src="./img/logo.1-1536x864_32x32.png" alt="Logo" width="100" height="100">
+            <h1>Resort Name</h1>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+            <svg class="circular-text" width="80" height="80" viewBox="0 0 170 150">
+               <!-- Group text elements within a single <text> element -->
+               <text>
+                  <textPath id="textPath1" xlink:href="#circle-text-path1">Dew Vista</textPath>
+                  <textPath id="textPath2" xlink:href="#circle-text-path2">Menu</textPath>
+               </text>
+               <!-- Define paths in a single <defs> element -->
+               <defs>
+                  <path id="circle-text-path1" d="M75,10 a65,65 0 1,1 0,130" />
+                  <path id="circle-text-path2" d="M25,10 a65,65 0 1,0 180,130" />
+               </defs>
+            </svg>
+            <div class="circular-menu-icon" id="menu-icon">
+               <i class="fas fa-bars"></i>
+            </div>
+         </div>
+    </header>
+
+    <div id="video-section">
+        <div id="video-container">
+            <video autoplay loop muted>
+                <source src="./videoplayback.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="bottom-bubble-text">
+            <div class="bubble">
+                <a href="#book-now">Book Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Twelve additional content sections -->
+    <div class="content-section">
+        <h2> DISCOVER DEW VISTA RESORT: A HAVEN BETWEEN SKY AND NATURE</h2>
+        <p>
+            Nestled amidst the breathtaking Dolomites, <b>Dew Vista</b> Resort stands as a unique sanctuary, offering tranquility, joy, and inspiration. Our resort, located in the Kannadichola, Vythiri, is a haven where boundaries blur, seamlessly merging architecture with the landscape, connecting heaven with earth, and harmonizing the bond between humanity and nature.
+            <br><br>
+            Take a pause at Dew Vista Resort, where the horizon expands, offering you a unique experience that transcends the ordinary. Embrace the beauty that surrounds you, and let the spirit of Dew Vista elevate your senses.
+        </p>
+    </div>
+    
+    <!--Section 2-->
+    <div class="content-section">
+        <h2 class="section-heading">A DAY IN OUR RESORT IN VYTHIRI</h2>
+    
+        <div id="carousel-container">
+            <div class="row-container" id="carousel1">
+                <div class="column image-column">
+                    <img src="./img/galley16.jpeg" alt="Morning View" class="column-image">
+                </div>
+                <div class="column text-column">
+                    <h3>7 A.M.</h3>
+                    <p>
+                        Time to wake up. Through the large window fronts of your room, the sunrays gently kiss your skin good-morning.
+                        You open the window and pure mountain air fills your lungs. You breathe again.
+                    </p>
+                    <div class="carousel-icon-container same-line">
+                        <i class="fa fa-chevron-left fa-lg" onclick="prevSlide(1, 3)"></i>
+                        <div class="carousel-text">
+                            <div id="totalSlides1">1 / 3</div>
+                        </div>
+                        <i class="fa fa-chevron-right fa-lg" onclick="nextSlide(1, 3)"></i>
+                    </div>
+                </div>
+                <div class="column image-column-up">
+                    <img src="./img/gallery3-scaled.jpg" alt="Scenic View" class="column-image">
+                </div>
+            </div>
+    
+            <div class="row-container" id="carousel2" style="display: none;">
+                <div class="column image-column">
+                    <img src="./img/galley16.jpeg" alt="Morning View" class="column-image">
+                </div>
+                <div class="column text-column">
+                    <h3>12 A.M.</h3>
+                    <p>
+                        Activities
+                    </p>
+                    <div class="carousel-icon-container same-line">
+                        <i class="fa fa-chevron-left fa-lg" onclick="prevSlide(2, 3)"></i>
+                        <div class="carousel-text">
+                            <div id="totalSlides2">2 / 3</div>
+                        </div>
+                        <i class="fa fa-chevron-right fa-lg" onclick="nextSlide(2, 3)"></i>
+                    </div>
+                </div>
+                <div class="column image-column-up">
+                    <img src="./img/gallery3-scaled.jpg" alt="Scenic View" class="column-image">
+                </div>
+            </div>
+    
+            <div class="row-container" id="carousel3" style="display: none;">
+                <div class="column image-column">
+                    <img src="./img/galley16.jpeg" alt="Morning View" class="column-image">
+                </div>
+                <div class="column text-column">
+                    <h3>4 P.M.</h3>
+                    <p>
+                        Activities
+                    </p>
+                    <div class="carousel-icon-container same-line">
+                        <i class="fa fa-chevron-left fa-lg" onclick="prevSlide(3, 3)"></i>
+                        <div class="carousel-text">
+                            <div id="totalSlides3">3 / 3</div>
+                        </div>
+                        <i class="fa fa-chevron-right fa-lg" onclick="nextSlide(3, 3)"></i>
+                    </div>
+                </div>
+                <div class="column image-column-up">
+                    <img src="./img/gallery3-scaled.jpg" alt="Scenic View" class="column-image">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Section 3-->
+    <div class="content-section">
+        <h2 class="section-heading">Section 3</h2>
+    
+        <div class="image-carousel">
+            <img src="../img/galley16.jpeg" alt="Image 1" class="carousel-image">
+            <img src="../img/gallery3-scaled.jpg" alt="Image 2" class="carousel-image" style="display: none;">
+            <img src="../img/MENU.png" alt="Image 3" class="carousel-image" style="display: none;">
+            <div class="same-line">
+                <button class="floating-button floating-button1" onclick="prevImage()"><i class="fa fa-chevron-left"></i></button>
+                    <div class="image-counter" id="imageCounter">1 / 3</div>
+                <button class="floating-button floating-button2" onclick="nextImage()"><i class="fa fa-chevron-right"></i></button>
+                
+            
+        </div>
+    </div>
+    <div class="content-section">
+        <h3>Some Heading</h3>
+        <h5>Your time is here and now. Here at Dew Vista.</h5>
+        <p>
+            There are places where you feel at home right from the start. Places you cannot wait to visit again. Inspired by the diversity of the natural landscapes which can leave everyday life behind and devote yourself to the truly good things in life. Everything that counts is the here and now, is you and your wellbeing. Lean back and let this unique place of peace and silence take effect on you. The fresh mountain air ensures clear, carefree thoughts, the sun provides unclouded hours of bliss.
+        </p>
+    </div>
+    <div class="content-section">Section 5</div>
+    <div class="content-section">Section 6</div>
+    <div class="content-section">Section 7</div>
+    <div class="content-section">Section 8</div>
+    <div class="content-section">Section 9</div>
+    <div class="content-section">Section 10</div>
+    <div class="content-section">Section 11</div>
+    <div class="content-section">
+        <div id="logo-resort">
+            <img src="./img/logo.1-1536x864_32x32.png" alt="Logo" width="100" height="100">
+            <h3>Resort Name</h3>
+        </div>
+        <div id="contact-details">
+            <p><strong>Call/WhatsApp:</strong> +91 9895 66 00 33</p>
+            <p><strong>Address:</strong> Kannadichola, Vythiri, Wayanad District, Kerala, India</p>
+            <p><strong>Pincode:</strong> 673576</p>
+            <p><strong>Email:</strong> info@vythiridewvista.com</p>
+            <p><strong>Website:</strong> <a href="https://vythiridewvista.com/gallery/" target="_blank">Vythiri DewVista</a></p>
+        </div>
+    </div>
+    
+
+    <script>
+        // JavaScript to toggle the active class on the menu icon and add class on scroll
+        document.getElementById('menu-icon').addEventListener('click', function () {
+            this.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 0);
+        });
+    </script>
+    <script>
+        // START OF Menu icon working
+        const menuIcon = document.getElementById('menu-icon');
+        const circularMenuIcon = document.querySelector('.circular-menu-icon i');
+
+        // Function to rotate the entire circular icon
+        const rotateEntireIcon = () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const rotationAngle = scrollY / 5; // You can adjust the rotation speed here
+
+        menuIcon.style.transform = `rotate(${rotationAngle}deg)`;
+        circularMenuIcon.style.transform = `translate(-50%, -50%) rotate(${140 + rotationAngle}deg)`;
+        };
+
+        // Add scroll event listener to rotate the entire circular icon
+        window.addEventListener('scroll', rotateEntireIcon);
+
+
+
+        // START OF carousel slider
+        let totalSlides=3;
+        let currentSlide=1;
+        function prevSlide(currentSlide, totalSlides) {
+            document.getElementById(`carousel${currentSlide}`).style.display = 'none';
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides + 1;
+            document.getElementById(`carousel${currentSlide}`).style.display = 'flex';
+            document.getElementById(`totalSlides${currentSlide}`).innerText = `${currentSlide} / ${totalSlides}`;
+        }
+
+        function nextSlide(currentSlide, totalSlides) {
+            document.getElementById(`carousel${currentSlide}`).style.display = 'none';
+            currentSlide = (currentSlide % totalSlides) + 1;
+            document.getElementById(`carousel${currentSlide}`).style.display = 'flex';
+            document.getElementById(`totalSlides${currentSlide}`).innerText = `${currentSlide} / ${totalSlides}`;
+        }
+
+        // END OF carousel slider
+        // START OF img carousel 
+        let currentImage = 1;
+        const totalImages = 3;
+
+        function showImage(imageNumber) {
+            document.querySelectorAll('.carousel-image').forEach((image, index) => {
+                image.style.display = index + 1 === imageNumber ? 'block' : 'none';
+            });
+
+            document.getElementById('imageCounter').innerText = `${imageNumber} / ${totalImages}`;
+        }
+
+        function prevImage() {
+            currentImage = (currentImage - 2 + totalImages) % totalImages + 1;
+            showImage(currentImage);
+        }
+
+        function nextImage() {
+            currentImage = (currentImage % totalImages) + 1;
+            showImage(currentImage);
+        }
+
+        // Show the first image initially
+        showImage(currentImage);
+        
+    </script>
+
+</body>
+</html>

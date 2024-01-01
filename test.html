@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular Menu Icon</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      height: 200vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font: #867a6f;
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #867A6F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #42454A;
+      transform: rotate(0deg);
+      transition: transform 0.5s ease; /* Add transition for smooth rotation */
+    }
+
+    .menu-icon svg {
+        position: fixed;
+      top: 20px;
+      right: 20px;
+
+    }
+
+
+    .circular-menu-icon i {
+      font-size: 2.0em;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(100deg);
+      transition: transform 0.5s ease; /* Add transition for smooth rotation */
+    }
+
+    .circular-text {
+      position: absolute;
+      text-align: center;
+      width: 90%;
+      top: 5%; /* Adjust the top position for "Dew Vista" */
+      transform: translateY(-50%) rotate(-90deg); /* Adjusted rotate value */
+      font-size: 15px;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      line-height: 150px;
+    }
+
+    .bottom-text {
+      position: absolute;
+      text-align: center;
+      width: 90%;
+      bottom: 5%; /* Adjust the bottom position for "Menu" */
+      transform: translateY(50%) rotate(90deg); /* Adjusted rotate value */
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      line-height: 150px;
+    }
+
+    .center-lines {
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background-color: #ffffff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .center-lines::before,
+    .center-lines::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 40px;
+      background-color: #ffffff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+    <div class="menu-icon" id="menu-icon">
+        <svg class="circular-text" width="80" height="80" viewBox="0 0 80 80">
+           <!-- Group text elements within a single <text> element -->
+           <text>
+              <textPath id="textPath1" xlink:href="#circle-text-path1">Dew Vista</textPath>
+              <textPath id="textPath2" xlink:href="#circle-text-path2">Menu</textPath>
+           </text>
+           <!-- Define paths in a single <defs> element -->
+            <defs>
+                <!-- Adjusted path for "Dew Vista" to arrange text around the menu icon -->
+                <path id="circle-text-path1" d="M50,20 a30,30 0 1,1 0,60" />
+                
+                <!-- Adjusted path for "Menu" to arrange text around the menu icon -->
+                <path id="circle-text-path2" d="M50,20 a30,30 0 1,0 0,60" />
+            </defs>
+            
+        </svg>
+        <div class="circular-menu-icon" id="menu-icon">
+           <i class="fas fa-bars"></i>
+        </div>
+     </div>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const circularMenuIcon = document.querySelector('.circular-menu-icon i');
+
+        // Function to rotate the entire circular icon
+        const rotateEntireIcon = () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const rotationAngle = scrollY / 5; // You can adjust the rotation speed here
+
+        menuIcon.style.transform = `rotate(${rotationAngle}deg)`;
+        circularMenuIcon.style.transform = `translate(-50%, -50%) rotate(${140 + rotationAngle}deg)`;
+        };
+
+        // Add scroll event listener to rotate the entire circular icon
+        window.addEventListener('scroll', rotateEntireIcon);
+    </script>
+
+    <div style="height: 120vh; background-color: #ddd; padding: 20px;">
+        <h2>Section 1</h2>
+        <p>This is some content for section 1.</p>
+    </div> <br>
+
+    <div style="width:33vh; height: 100vh; background-color: #bbb; padding: 20px;">
+        <h2>Section 2</h2>
+        <p>This is some content for section 2.</p>
+    </div> <br>
+
+    <div style="height: 100vh; background-color: #999; padding: 20px;">
+        <h2>Section 3</h2>
+        <p>This is some content for section 3.</p>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+<!--
+
+<header id="DNA-section--header" class="DNA-section" data-id="header">
+  <div class="DNA-section__wrapper">
+      <div class="DNA-section__left">
+          <div class="DNA-section__left-phone">
+              <a href="tel:00390474592104" class="GTM--click-to-call">
+              <span>T +39 0474 59 21 04</span>
+              </a>
+          </div>
+          <div class="DNA-section__left-spacer">
+              <span>/</span>
+          </div>
+          <div class="DNA-section__left-mail">
+              <a class="GTM--mail" href="#" data-mailto-token="jxfiql7fkclXelqbi:eryboqrp+zlj" data-mailto-vector="-3">
+              <span>info@hotel-hubertus.com</span>
+              </a>
+          </div>
+          <div class="DNA-section__left-spacer">
+              <span>/</span>
+          </div>
+          <div class="DNA-section__left-langmenu">
+              <div class="DNA-section__lang-label">
+                  <span>LANGUAGE</span>
+              </div>
+              <ul class="DNA-section__lang-menu">
+                  <li class="DNA-section__lang-menu__item JS-langmenu__item ">
+                      <a href="/" title="Deutsch" class="GTM--click-event" data-gtm-action="header language navigation" data-gtm-category="click header" data-gtm-label="de">
+                      de
+                      </a>
+                  </li>
+                  <li class="DNA-section__lang-menu__item JS-langmenu__item ">
+                      <a href="/it/" title="Italiano" class="GTM--click-event" data-gtm-action="header language navigation" data-gtm-category="click header" data-gtm-label="it">
+                      it
+                      </a>
+                  </li>
+                  <li class="DNA-section__lang-menu__item JS-langmenu__item DNA-section__lang-menu__item--act">
+                      <a href="/en/" title="English" class="GTM--click-event" data-gtm-action="header language navigation" data-gtm-category="click header" data-gtm-label="en">
+                      en
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="DNA-section__left-seasonswitch JS-seasonswitch">
+              <div class="DNA-winter JS-act" title="Winter" data-season="3">
+                  <i class="DNA-icon DNA-icon--winter"></i>
+              </div>
+              <div class="DNA-spacer">
+                  <span>/</span>
+              </div>
+              <div class="DNA-summer" title="Summer" data-season="2">
+                  <i class="DNA-icon DNA-icon--summer"></i>
+              </div>
+          </div>
+      </div>
+      <div class="DNA-section__center">
+          <div class="DNA-section__center-langmenu">
+              <ul class="DNA-section__lang-menu">
+                  <li class="DNA-section__lang-menu__item JS-langmenu__item ">
+                      <a href="/" title="Deutsch" class="GTM--click-event" data-gtm-action="header language navigation" data-gtm-category="click header" data-gtm-label="de">
+                      de
+                      </a>
+                  </li>
+                  <li class="DNA-section__lang-menu__item JS-langmenu__item ">
+                      <a href="/it/" title="Italiano" class="GTM--click-event" data-gtm-action="header language navigation" data-gtm-category="click header" data-gtm-label="it">
+                      it
+                      </a>
+                  </li>
+                  <li class="DNA-section__lang-menu__item JS-langmenu__item DNA-section__lang-menu__item--act">
+                      <a href="/en/" title="English" class="GTM--click-event" data-gtm-action="header language navigation" data-gtm-category="click header" data-gtm-label="en">
+                      en
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="DNA-section__center-logo">
+              <a href="/en/" title="Alpin Panorama Hotel Hubertus" target="_top">
+              <img class="DNA-section__center-logo DNA-section__center-logo--white" src="/typo3conf/ext/bn_package/Resources/Public/Images/logo/hubertus_weiss.svg" alt="Alpin Panorama Hotel Hubertus" title="Alpin Panorama Hotel Hubertus">
+              <img class="DNA-section__center-logo DNA-section__center-logo--brown" src="/typo3conf/ext/bn_package/Resources/Public/Images/logo/hubertus.svg" alt="Alpin Panorama Hotel Hubertus" title="Alpin Panorama Hotel Hubertus">
+              </a>
+          </div>
+      </div>
+      <div class="DNA-section__right">
+          <div class="DNA-section__right-seasonswitch JS-seasonswitch">
+              <div class="DNA-winter JS-act" title="Winter" data-season="3">
+                  <span>Winter</span>
+              </div>
+              <div class="DNA-spacer">
+                  <span>/</span>
+              </div>
+              <div class="DNA-summer" title="Summer" data-season="2">
+                  <span>Summer</span>
+              </div>
+          </div>
+          <div class="DNA-section__right-menu JS-rotate JS-menu-trigger" style="transform: rotate(0deg);">
+              <i class="DNA-icon DNA-icon--menu-it"></i>
+              <i class="DNA-icon DNA-icon--menu-close-it"></i>
+          </div>
+      </div>
+  </div>
+  <div class="DNA-section__menu JS-menu">
+      <div class="DNA-section__menu-quicklinks">
+          <a href="/en/experience/hiking-mountaineering" target="_top">
+          <i class="DNA-icon DNA-icon--hiking"></i>
+          </a>
+          <a href="/en/experience/skiing-snowboarding" target="_top">
+          <i class="DNA-icon DNA-icon--ski"></i>
+          </a>
+          <a href="/en/relax" target="_top">
+          <i class="DNA-icon DNA-icon--wellness"></i>
+          </a>
+          <a href="/en/enjoy/our-culinary-art" target="_top">
+          <i class="DNA-icon DNA-icon--food"></i>
+          </a>
+      </div>
+      <div class="DNA-section__main-menu">
+          <ul class="DNA-section__main-menu__lvl DNA-section__main-menu__lvl--0">
+              <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-0 DNA-section__main-menu__item--first" data-menu-items="11">
+                  <a href="/en/discover" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-0 JS-block-touch" target="_top" title="Hotel Hubertus">
+                  <span>Discover</span>
+                  <span>Hotel Hubertus</span>
+                  </a>
+                  <div class="DNA-section__main-menu__sub">
+                      <ul class="DNA-section__main-menu__lvl DNA-section__main-menu__lvl--1">
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--first">
+                              <a href="/en/discover/your-hosts-the-gasser-family" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Your hosts, the Gasser Family">
+                              <span>Your hosts, the Gasser Family</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/hubertus-history" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Hubertus History">
+                              <span>Hubertus History</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/hotel-pustertal/stories-of-hotel-hubertus" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Stories of Hotel Hubertus">
+                              <span>Stories of Hotel Hubertus</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/photos-videos" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Photos &amp; videos">
+                              <span>Photos &amp; videos</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/weather-webcam" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Weather &amp; webcam">
+                              <span>Weather &amp; webcam</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/location-arrival" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Location &amp; arrival">
+                              <span>Location &amp; arrival</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/cooperations" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Cooperations">
+                              <span>Cooperations</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/catalogue-for-daydreams" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Catalogue for daydreams">
+                              <span>Catalogue for daydreams</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/give-a-voucher" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Give a voucher">
+                              <span>Give a voucher</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/discover/highlights-at-the-hubertus" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Highlights at the Hubertus">
+                              <span>Highlights at the Hubertus</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--last">
+                              <a href="https://www.jobs.hotel-hubertus.com/de" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_blank" title="Join the H-Crew">
+                              <span>Join the H-Crew</span>
+                              <span></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-0" data-menu-items="13">
+                  <a href="/en/experience" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-0 JS-block-touch" target="_top" title="Summer &amp; Winter">
+                  <span>Experience</span>
+                  <span>Summer &amp; Winter</span>
+                  </a>
+                  <div class="DNA-section__main-menu__sub">
+                      <ul class="DNA-section__main-menu__lvl DNA-section__main-menu__lvl--1">
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--first">
+                              <a href="/en/experience/hiking-mountaineering" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Hiking &amp; mountaineering">
+                              <span>Hiking &amp; mountaineering</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/mountain-e-biken" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Mountain &amp; e-biking">
+                              <span>Mountain &amp; e-biking</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/other-summer-adventures" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Other summer adventures">
+                              <span>Other summer adventures</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/weekly-programme-in-summer" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Weekly programme in summer">
+                              <span>Weekly programme in summer</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__spacer"></li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/skiing-snowboarding" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Skiing &amp; snowboarding">
+                              <span>Skiing &amp; snowboarding</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/dolomagic" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Dolomagic">
+                              <span>Dolomagic</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/winter-snowshoe-hiking" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Winter &amp; snowshoe hiking">
+                              <span>Winter &amp; snowshoe hiking</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/other-winter-activities" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Other winter activities">
+                              <span>Other winter activities</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/weekly-programme-in-winter" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Weekly programme in winter">
+                              <span>Weekly programme in winter</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__spacer"></li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/experience/shopping-sightseeing" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Shopping &amp; sightseeing">
+                              <span>Shopping &amp; sightseeing</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--last">
+                              <a href="/en/experience/holidays-with-dog" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Holidays with dog">
+                              <span>Holidays with dog</span>
+                              <span></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-0" data-menu-items="6">
+                  <a href="/en/relax" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-0 JS-block-touch" target="_top" title="The wellness world">
+                  <span>Relax</span>
+                  <span>The wellness world</span>
+                  </a>
+                  <div class="DNA-section__main-menu__sub">
+                      <ul class="DNA-section__main-menu__lvl DNA-section__main-menu__lvl--1">
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--first">
+                              <a href="/en/relax/sky-pool-water-world" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Sky Pool &amp; water world">
+                              <span>Sky Pool &amp; water world</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/relax/saunas-relaxation-rooms" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Saunas &amp; relaxation rooms">
+                              <span>Saunas &amp; relaxation rooms</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/relax/heaven-hell" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Heaven &amp; Hell">
+                              <span>Heaven &amp; Hell</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/relax/alpenreych-spa" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Alpenreych Spa">
+                              <span>Alpenreych Spa</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/relax/alpenreych-hubertus-park" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Alpenreych &amp; Hubertus Park">
+                              <span>Alpenreych &amp; Hubertus Park</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--last">
+                              <a href="/en/relax/fitness" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Fitness">
+                              <span>Fitness</span>
+                              <span></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-0" data-menu-items="4">
+                  <a href="/en/enjoy" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-0 JS-block-touch" target="_top" title="The culinary experience">
+                  <span>Enjoy</span>
+                  <span>The culinary experience</span>
+                  </a>
+                  <div class="DNA-section__main-menu__sub">
+                      <ul class="DNA-section__main-menu__lvl DNA-section__main-menu__lvl--1">
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--first">
+                              <a href="/en/enjoy/our-culinary-art" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Our culinary art">
+                              <span>Our culinary art</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/enjoy/places-of-indulgence" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Places of indulgence">
+                              <span>Places of indulgence</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/enjoy/wine-selection" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Wine selection">
+                              <span>Wine selection</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--last">
+                              <a href="/en/enjoy/atelier-moessmer-norbert-niederkofler" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Atelier Moessmer Norbert Niederkofler">
+                              <span>Atelier Moessmer Norbert Niederkofler</span>
+                              <span></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-0" data-menu-items="8">
+                  <a href="/en/living" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-0 JS-block-touch" target="_top" title="Rooms &amp; Rates">
+                  <span>Living</span>
+                  <span>Rooms &amp; Rates</span>
+                  </a>
+                  <div class="DNA-section__main-menu__sub">
+                      <ul class="DNA-section__main-menu__lvl DNA-section__main-menu__lvl--1">
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--first">
+                              <a href="/en/living/rooms-suites" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Rooms &amp; suites">
+                              <span>Rooms &amp; suites</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/living/current-rates" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Current rates">
+                              <span>Current rates</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/living/offers" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Offers">
+                              <span>Offers</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/living/inclusive-services" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Inclusive services">
+                              <span>Inclusive services</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/living/our-vip-card" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Our VIP Card">
+                              <span>Our VIP Card</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/living/good-to-know-from-a-z" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Booking conditions from A-Z">
+                              <span>Booking conditions from A-Z</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1">
+                              <a href="/en/living/enquiry" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Enquiry">
+                              <span>Enquiry</span>
+                              <span></span>
+                              </a>
+                          </li>
+                          <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-1 DNA-section__main-menu__item--last">
+                              <a href="/en/living/booking" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-1 " target="_top" title="Booking">
+                              <span>Booking</span>
+                              <span></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="DNA-section__main-menu__item DNA-section__main-menu__item--lvl-0 DNA-section__main-menu__item--last" data-menu-items="0">
+                  <a href="/en/sustainability" class="DNA-section__main-menu__link DNA-section__main-menu__link--lvl-0 " target="_top" title="Sustainability">
+                  <span>Sustainability</span>
+                  <span></span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div class="DNA-section__menu-bg">
+          <picture>
+              <source srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-srcset="/fileadmin/_processed_/2/8/csm_013_hubertus__c_KOTTERSTEGER_190115_KOT_3775_1db338230e.jpg" media="(max-width: 767px)">
+              <source srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-srcset="/fileadmin/_processed_/2/8/csm_013_hubertus__c_KOTTERSTEGER_190115_KOT_3775_d21b27b22f.jpg" media="(max-width: 1024px)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAQAAACRI2S5AAAAEElEQVR42mNkIAAYRxWAAQAG9gAKqv6+AwAAAABJRU5ErkJggg==" data-srcset="/fileadmin/_processed_/2/8/csm_013_hubertus__c_KOTTERSTEGER_190115_KOT_3775_3979860a96.jpg" data-sizes="auto" class="DNA-lazyload lazyload " title="[Translate to Englisch:]" alt="[Translate to Englisch:]" data-copyright="">
+          </picture>
+      </div>
+      <div class="DNA-section__menu-overlay"></div>
+  </div>
+</header>
+
+-->

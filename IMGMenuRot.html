@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotating Image on Scroll</title>
+  <style>
+    body {
+      height: 5000px;
+      margin: 0; /* Remove default body margin */
+    }
+
+    .image-container {
+      position: fixed; /* Set the position to fixed */
+      top: 20px; /* Adjust the top position as needed */
+      right: 20px; /* Adjust the right position as needed */
+      width: 300px; /* Adjust the width as needed */
+      transition: transform .8s ease-in-out; /* Increased transition duration to slow down rotation */
+    }
+
+    #hoverImage {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="image-container" id="imageContainer">
+  <img src="./img/MenuNoBG.png" alt="Original Image" id="hoverImage">
+</div>
+
+<script>
+  // Get the image element
+  var image = document.getElementById('hoverImage');
+  var container = document.getElementById('imageContainer');
+
+  // Function to update the rotation based on scroll position
+  function rotateOnScroll() {
+    // Calculate the rotation angle based on the scroll position
+    var rotationAngle = window.scrollY % 540; // Limit rotation to a maximum of 360 degrees
+
+    // Apply the rotation to the image container
+    container.style.transform = 'rotate(' + rotationAngle + 'deg)';
+  }
+
+  // Attach the function to the scroll event
+  window.addEventListener('scroll', rotateOnScroll);
+
+  // Reset rotation on mouseout
+  document.getElementById('hoverImage').addEventListener('mouseout', function() {
+    container.style.transform = 'rotate(0deg)';
+  });
+</script>
+
+</body>
+</html>

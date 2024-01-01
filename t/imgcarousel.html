@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .content-section {
+            text-align: center;
+            margin: 50px;
+            position: relative;
+        }
+
+        .image-carousel {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .floating-button {
+            position: absolute;
+            top: 75%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .floating-button1 {
+            left: 30%;
+        }
+
+        .floating-button2 {
+            right: 30%;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .floating-button {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-button {
+                font-size: 12px;
+            }
+
+            .floating-button1 {
+                left: 20%;
+            }
+
+            .floating-button2 {
+                right: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-section">
+    <h2 class="section-heading">Section 3</h2>
+
+    <div class="image-carousel">
+        <img src="../img/galley16.jpeg" alt="Image 1" class="carousel-image">
+        <img src="../img/gallery3-scaled.jpg" alt="Image 2" class="carousel-image" style="display: none;">
+        <img src="../img/MENU.png" alt="Image 3" class="carousel-image" style="display: none;">
+
+        <button class="floating-button floating-button1" onclick="prevImage()"><i class="fa fa-chevron-left"></i></button>
+        <button class="floating-button floating-button2" onclick="nextImage()"><i class="fa fa-chevron-right"></i></button>
+
+        <div class="image-counter" id="imageCounter">1 / 3</div>
+    </div>
+</div>
+
+<script>
+    let currentImage = 1;
+    const totalImages = 3;
+
+    function showImage(imageNumber) {
+        document.querySelectorAll('.carousel-image').forEach((image, index) => {
+            image.style.display = index + 1 === imageNumber ? 'block' : 'none';
+        });
+
+        document.getElementById('imageCounter').innerText = `${imageNumber} / ${totalImages}`;
+    }
+
+    function prevImage() {
+        currentImage = (currentImage - 2 + totalImages) % totalImages + 1;
+        showImage(currentImage);
+    }
+
+    function nextImage() {
+        currentImage = (currentImage % totalImages) + 1;
+        showImage(currentImage);
+    }
+
+    // Show the first image initially
+    showImage(currentImage);
+</script>
+
+</body>
+</html>

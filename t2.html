@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular Menu Icon</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #867A6F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #42454A;
+      transition: transform 0.5s ease;
+    }
+
+    .circular-menu-icon i {
+      font-size: 2.0em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      transition: transform 0.5s ease;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="menu-icon" id="menu-icon">
+    <svg class="circular-text" width="80" height="80" viewBox="0 0 80 80">
+      <!-- Group text elements within a single <text> element -->
+      <text>
+        <textPath id="textPath1" xlink:href="#circle-text-path1">Dew Vista</textPath>
+        <textPath id="textPath2" xlink:href="#circle-text-path2">Menu</textPath>
+      </text>
+      <!-- Define paths in a single <defs> element -->
+      <defs>
+        <!-- Adjusted path for the first text to arrange text around the menu icon -->
+        <path id="circle-text-path1" d="M5,30 a360,30 0 1,1 0,130" />
+
+        
+        <!-- Adjusted path for the second text to arrange text around the menu icon -->
+        <path id="circle-text-path2" d="M15,72 a70,30 0 1,0 0,-60" />
+
+      </defs>
+    </svg>
+
+    
+    <div class="circular-menu-icon" id="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const circularMenuIcon = document.querySelector('.circular-menu-icon i');
+
+    // Function to rotate the entire circular icon
+    const rotateEntireIcon = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const rotationAngle = scrollY / 5;
+
+      menuIcon.style.transform = `rotate(${rotationAngle}deg)`;
+      circularMenuIcon.style.transform = `translate(-50%, -50%) rotate(${rotationAngle}deg)`;
+    };
+
+    // Add scroll event listener to rotate the entire circular icon
+    window.addEventListener('scroll', rotateEntireIcon);
+  </script>
+
+  <div style="height: 120vh; background-color: #ddd; padding: 20px;">
+    <h2>Section 1</h2>
+    <p>This is some content for section 1.</p>
+  </div> <br>
+
+  <div style="width:33vh; height: 100vh; background-color: #bbb; padding: 20px;">
+    <h2>Section 2</h2>
+    <p>This is some content for section 2.</p>
+  </div> <br>
+
+  <div style="height: 100vh; background-color: #999; padding: 20px;">
+    <h2>Section 3</h2>
+    <p>This is some content for section 3.</p>
+  </div>
+</body>
+</html>

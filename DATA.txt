@@ -1,0 +1,20 @@
++91 9895 66 00 33
+Kannadichola, Vythiri
+Wayanad District
+Pincode - 673576
+Kerala State, India
+info@vythiridewvista.com
+Email : 
+
+
+.DNA-section[data-id=hero] .DNA-section__slogan.JS-hide {
+    display: none;
+}
+
+
+https://cloud.google.com/security/ai?hl=en
+
+1. Model with parameters like log, prev attacks, etc. predi
+   https://github.com/SAP/ml-model-watermarking
+2. [ Security for ML models ] 
+   Protect ML model my inputiing a model
